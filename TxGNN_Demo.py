@@ -45,7 +45,6 @@ TxGNN.train_graphmask(relation = 'indication',
                       allowance = 0.005,
                       epochs_per_layer = 3,
                       penalty_scaling = 1,
-                      epochs_per_layer = 5,
                       valid_per_n = 20)
 
 output = TxGNN.retrieve_save_gates('./model_ckpt')
