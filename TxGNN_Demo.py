@@ -1,6 +1,8 @@
 from txgnn import TxData, TxGNN, TxEval
 
-TxData = TxData(data_folder_path = '/n/scratch3/users/k/kh278/kg/')
+# Modified file path to exist on the compute node
+TxData = TxData(data_folder_path = 'kg/')
+
 TxData.prepare_split(split = 'complex_disease', seed = 42, no_kg = False)
 
 TxGNN = TxGNN(data = TxData, 
