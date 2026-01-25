@@ -540,7 +540,8 @@ def evaluate_graph_construct(df_valid, g, neg_sampler, k, device):
             print(etype[1])
     
     # Debugging
-    print("Out dict: " + out)
+    print("Out dict:")
+    print(out)
     
     g_valid = dgl.heterograph(out, num_nodes_dict={ntype: g.number_of_nodes(ntype) for ntype in g.ntypes})
     
