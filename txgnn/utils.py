@@ -530,6 +530,11 @@ class Full_Graph_NegSampler:
 def evaluate_graph_construct(df_valid, g, neg_sampler, k, device):
     out = {}
     df_in = df_valid[['x_idx', 'relation', 'y_idx']]
+    
+    # Debugging
+    print("Relations in df_valid:", df_in.relation.unique()[:10])
+    print("Canonical etypes:", g.canonical_etypes)
+          
     for etype in g.canonical_etypes:
         try:
             df_temp = df_in[df_in.relation == etype[1]]
