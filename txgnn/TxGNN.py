@@ -34,11 +34,13 @@ torch.manual_seed(0)
 
 class TxGNN:
     
+    # TODO change back to default
+    ### default should be device = 'cuda:0'
     def __init__(self, data,
                        weight_bias_track = False,
                        proj_name = 'TxGNN',
                        exp_name = 'TxGNN',
-                       device = 'cuda:0'):
+                       device = 'cpu'):
         self.device = torch.device(device)
         self.weight_bias_track = weight_bias_track
         self.G = data.G
