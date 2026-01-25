@@ -534,7 +534,8 @@ def evaluate_graph_construct(df_valid, g, neg_sampler, k, device):
     # Debugging
     print("Relations in df_valid:", df_in.relation.unique()[:10])
     print("Canonical etypes:", g.canonical_etypes)
-          
+    
+    '''   
     for etype in g.canonical_etypes:
         try:
             df_temp = df_in[df_in.relation == etype[1]]
@@ -543,6 +544,19 @@ def evaluate_graph_construct(df_valid, g, neg_sampler, k, device):
             out.update({etype: (src, dst)})
         except:
             print(etype[1])
+    '''
+    
+    # New debugging block
+    for etype in g.canonical_etypes:
+        try:
+            df_temp = df_in[df_in.relation == etype[1]]
+            src = torch.Tensor(df_temp.x_idx.values).to(device).to(dtype=torch.int64)
+            dst = torch.Tensor(df_temp.y_idx.values).to(device).to(dtype=torch.int64)
+            out.update({etype: (src, dst)})
+        except Exception as e:
+            print("FAILED etype:", etype)
+            print("ERROR:", repr(e))
+            raise
     
     # Debugging
     print("Out dict:")
