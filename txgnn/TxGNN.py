@@ -85,6 +85,11 @@ class TxGNN:
         
         self.G = self.G.to('cpu')
         self.G = initialize_node_embedding(self.G, n_inp)
+        
+        # Debugging
+        print("df_valid rows:", len(self.df_valid))
+        print("df_test rows:", len(self.df_test))
+        
         self.g_valid_pos, self.g_valid_neg = evaluate_graph_construct(self.df_valid, self.G, 'fix_dst', 1, self.device)
         self.g_test_pos, self.g_test_neg = evaluate_graph_construct(self.df_test, self.G, 'fix_dst', 1, self.device)
 
