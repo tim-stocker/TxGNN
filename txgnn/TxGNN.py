@@ -30,17 +30,18 @@ import warnings
 warnings.filterwarnings("ignore")
 
 torch.manual_seed(0)
-#device = torch.device("cuda:0")
+device = torch.device("cuda:0")
 
 class TxGNN:
     
     # TODO change back to default
-    ### default should be device = 'cuda:0'
+    ### default should be device='cuda:0'
+    ### to run on cpu put device="cpu" here instead
     def __init__(self, data,
                        weight_bias_track = False,
                        proj_name = 'TxGNN',
                        exp_name = 'TxGNN',
-                       device = 'cpu'):
+                       device = 'cuda:0'):
         self.device = torch.device(device)
         self.weight_bias_track = weight_bias_track
         self.G = data.G
