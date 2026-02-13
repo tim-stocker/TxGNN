@@ -26,6 +26,7 @@ from zipfile import ZipFile
 import warnings
 warnings.filterwarnings("ignore")
 
+# TODO uncomment this??
 #device = torch.device("cuda:0")
 
 from .data_splits.datasplit import DataSplitter
